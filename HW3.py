@@ -1,12 +1,12 @@
-# Name: Deivn Benson
+# Name: Devin Benson
 # Student ID: 80095600
 # Email: devinben@umich.edu
-# Who or what you worked with on this homework (including generative AI like ChatGPT):
-# If you worked with generative AI also add a statement for how you used it.
-# e.g.:
-# Asked ChatGPT hints for debugging and suggesting the general structure of the code
+# Who or what you worked with on this homework (including generative AI like ChatGPT):I worked independently and used ChatGPT for help understanding the assignment
+# If you worked with generative AI also add a statement for how you used it. I used ChatGPT to ask questions about Python syntax, clarify how certain
+# functions should work, and to help debug issues when my code was not running
 # Did your use of GenAI on this assignment align with your goals and guidelines in 
-#    your Gen AI contract? If not, why?
+#    your Gen AI contract? If not, why? Yes, my use of generative AI followed the guidelines in my GenAI contract and
+# supported my learning rather than replacing it.
 
 import random
 import io
@@ -95,7 +95,7 @@ class CouponDispenser:
 
         Reminder: Use lists only (no dictionaries).
         """
-    def distribute_session(self):
+    
         round_number = 1
 
         while True:
