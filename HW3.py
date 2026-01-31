@@ -66,10 +66,10 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
-         if len(self.coupon_cards) == 0:
+        if len(self.coupon_cards) == 0:
             return "The box is empty."
 
-         if name in self.customer_roster:
+        if name in self.customer_roster:
             index = self.customer_roster.index(name)
             coupon_index = self.issued_indices[index]
             coupon = self.coupon_cards[coupon_index]
@@ -95,8 +95,37 @@ class CouponDispenser:
 
         Reminder: Use lists only (no dictionaries).
         """
-        # TODO: Implement per instructions 
-        pass
+    def distribute_session(self):
+        round_number = 1
+
+        while True:
+            user_input = input(
+                "Round " + str(round_number) +
+                " - Enter a name (or a comma-separated list), or type 'show' or 'exit': "
+            )
+
+            if user_input == "exit":
+                print("Goodbye!")
+                break
+
+            elif user_input == "show":
+                for i in range(len(self.customer_roster)):
+                    name = self.customer_roster[i]
+                    coupon = self.coupon_cards[self.issued_indices[i]]
+                    print(name + ": " + coupon)
+
+            else:
+                pieces = user_input.split(",")
+
+                for piece in pieces:
+                    cleaned = piece.strip()
+                    if cleaned != "":
+                        result = self.issue_coupon(cleaned)
+                        print(result)
+
+            round_number += 1
+
+        
 
     def tally_distribution(self):
         """
@@ -114,7 +143,16 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
-        pass
+        if len(self.issued_indices) == 0:
+            print("Empty")
+            return
+
+        for i in range(len(self.coupon_cards)):
+            count = 0
+            for issued in self.issued_indices:
+                if issued == i:
+                    count += 1
+            print(self.coupon_cards[i] + " distribution count: " + str(count) + ".")
 
 
 def main():
@@ -136,7 +174,9 @@ def main():
     # box = CouponDispenser(coupon_cards)
     # box.distribute_session()
     # box.tally_distribution()
-    pass
+    box = CouponDispenser(coupon_cards)
+    box.distribute_session()
+    box.tally_distribution()
 
 
 # -----------------------
